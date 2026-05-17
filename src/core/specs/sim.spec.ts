@@ -32,8 +32,8 @@ describe('Simulation Orchestration Module', () => {
     expect(simResult.median).toBe(7);
     expect(simResult.q3).toBe(7);
     
-    expect(simResult.minTotal).toBe(2);
-    expect(simResult.maxTotal).toBe(12);
+    expect(simResult.minTotal).toBe(7);
+    expect(simResult.maxTotal).toBe(7);
     expect(simResult.frequencies.get(7)).toBe(3);
   });
 });

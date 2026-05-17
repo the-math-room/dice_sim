@@ -1,4 +1,3 @@
-import type { AppState } from './store.js';
 import { parseSimulationRequestForm } from './parseForm.js';
 import { store } from './store.js';
 
@@ -13,19 +12,19 @@ export function runSimulationFromInput(diceRaw: string, trialsRaw: string): void
     return;
   }
 
-  // 1. Immediately drop the UI into a loading state
+  // 1. Set UI to loading state
   store.setState({ status: 'LOADING' });
 
-  // 2. Instantiate our Vite-supported Web Worker script natively
+  // 2. Instantiate background Web Worker
   const worker = new Worker(
     new URL('./sim.worker.ts', import.meta.url), 
     { type: 'module' }
   );
 
-  // 3. Send the validated request payload over the thread wall
+  // 3. Handoff payload data
   worker.postMessage(validationResult.value);
 
-  // 4. Listen for the background thread to reply
+  // 4. Capture response
   worker.onmessage = (event) => {
     const { success, simulation, error } = event.data;
 
@@ -35,11 +34,11 @@ export function runSimulationFromInput(diceRaw: string, trialsRaw: string): void
       store.setState({ status: 'ERROR', error });
     }
 
-    // Always terminate the worker when done to instantly reclaim browser memory
     worker.terminate();
   };
 
-  worker.onerror = (err) => {
+  // Fixed: Removed the unused 'err' parameter entirely since it's not needed
+  worker.onerror = () => {
     store.setState({ status: 'ERROR', error: 'Worker thread crashed unexpectedly.' });
     worker.terminate();
   };

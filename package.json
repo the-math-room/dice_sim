@@ -1,0 +1,23 @@
+{
+  "name": "dice_sim",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22 <26",
+    "npm": ">=10"
+  },
+  "scripts": {
+    "preinstall": "node -e \"const v=process.versions.node.split('.')[0]; if (+v >= 26) { console.error('\\nNode 26 is not supported for this project. Use Node 24 LTS or Node 22 LTS.\\nRun: nvm install 24 && nvm use 24\\n'); process.exit(1); }\"",
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "vite": "^6.4.2",
+    "vitest": "3.2.4"
+  }
+}

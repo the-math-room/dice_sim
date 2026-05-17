@@ -1,0 +1,26 @@
+body { font-family: system-ui, sans-serif; margin: 0; background: #fafafa; color: #222; }
+main { max-width: 960px; margin: 0 auto; padding: 32px; }
+h1 { margin-top: 0; }
+section { background: white; border: 1px solid #ddd; border-radius: 12px; padding: 20px; margin: 20px 0; }
+.field { margin: 12px 0; }
+label { display: block; font-weight: 700; margin-bottom: 6px; }
+input { font-size: 16px; padding: 8px 10px; width: 180px; }
+button { margin-top: 16px; font-size: 16px; padding: 10px 16px; cursor: pointer; }
+small { display: block; color: #666; margin-top: 4px; }
+.error { color: #8a1f11; background: #fdecea; border: 1px solid #f5c2c0; padding: 12px; border-radius: 8px; }
+.empty-state { color: #666; }
+.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 8px; margin-bottom: 20px; }
+.stat { background: #f4f4f4; padding: 10px; border-radius: 8px; }
+.histogram { display: grid; gap: 6px; }
+.hist-row { display: grid; grid-template-columns: 48px 1fr 120px; gap: 10px; align-items: center; }
+.hist-total { font-variant-numeric: tabular-nums; font-weight: 700; }
+.hist-bar-wrap { height: 18px; background: #eee; border-radius: 999px; overflow: hidden; }
+.hist-bar { height: 100%; background: #333; border-radius: 999px; }
+.hist-count { font-variant-numeric: tabular-nums; color: #555; }
+.roll-gallery { display: grid; gap: 12px; }
+.roll-card { border: 1px solid #ddd; border-radius: 10px; padding: 12px; background: #fff; }
+.roll-title { font-weight: 700; margin-bottom: 8px; }
+.dice-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.die { width: 44px; height: 44px; background: white; border: 2px solid #222; border-radius: 9px; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); padding: 5px; box-sizing: border-box; }
+.pip { display: flex; align-items: center; justify-content: center; }
+.pip.on::after { content: ''; width: 7px; height: 7px; background: #222; border-radius: 999px; display: block; }

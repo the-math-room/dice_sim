@@ -24,3 +24,33 @@ small { display: block; color: #666; margin-top: 4px; }
 .die { width: 44px; height: 44px; background: white; border: 2px solid #222; border-radius: 9px; display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 1fr); padding: 5px; box-sizing: border-box; }
 .pip { display: flex; align-items: center; justify-content: center; }
 .pip.on::after { content: ''; width: 7px; height: 7px; background: #222; border-radius: 999px; display: block; }
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-block-end: 32px;
+  
+  color: #475569; /* Balanced slate gray */
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  
+  transition: color 150ms ease;
+
+  .back-link__arrow {
+    display: inline-block;
+    transition: transform 150ms ease;
+  }
+
+  /* Micro-interaction: Link shifts slightly left on hover/focus */
+  &:hover,
+  &:focus {
+    color: #2563eb; /* Accent blue */
+    outline: none;
+
+    .back-link__arrow {
+      transform: translateX(-3px);
+    }
+  }
+}
